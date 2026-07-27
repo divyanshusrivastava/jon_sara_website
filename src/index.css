@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ivory: hsl(34 33% 91%);
+  --color-cream: hsl(55 18% 65%);
+  --color-sage: hsl(72 13% 45%);
+  --color-sage-dark: hsl(72 19% 32%);
+  --color-sage-light: hsl(55 18% 65%);
+  --color-gold: hsl(42 85% 55%);
+  --color-gold-soft: hsl(42 60% 70%);
+  --color-countdown: hsl(30 27% 91%);
+  --color-carbon: hsl(72 19% 25%);
+  --font-display: "Cormorant Garamond", serif;
+  --font-script: "Great Vibes", cursive;
+  --font-body: "Cormorant Garamond", serif;
+  --shadow-soft: 0 2px 15px -3px rgba(58, 69, 52, 0.08),
+    0 4px 6px -2px rgba(58, 69, 52, 0.04);
+  --shadow-elegant: 0 10px 40px -10px rgba(58, 69, 52, 0.15),
+    0 4px 15px -3px rgba(58, 69, 52, 0.08);
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--color-ivory);
+    color: var(--color-sage-dark);
+    font-family: var(--font-body);
+    font-weight: 400;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-script {
+    font-family: var(--font-script);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
