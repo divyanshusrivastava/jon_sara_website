@@ -3,10 +3,16 @@ import { I18nProvider } from "./i18n.tsx";
 import { IntroOverlay } from "./components/IntroOverlay.tsx";
 import { Hero } from "./components/Hero.tsx";
 import { Countdown } from "./components/Countdown.tsx";
+import {
+  Welcome,
+  Story,
+  Foundation,
+  FamilyHouse,
+  Contact,
+} from "./components/ContentSections.tsx";
 import { Details } from "./components/Details.tsx";
 import { Gallery } from "./components/Gallery.tsx";
 import { Schedule } from "./components/Schedule.tsx";
-import { Menu } from "./components/Menu.tsx";
 import { DressCode } from "./components/DressCode.tsx";
 import { Accommodation } from "./components/Accommodation.tsx";
 import { FAQ } from "./components/FAQ.tsx";
@@ -29,16 +35,20 @@ export default function App() {
       >
         <Hero />
         <Countdown />
-        <Details />
+        <Welcome />
+        <Story />
         <Gallery />
+        <Foundation />
+        <FamilyHouse />
+        <Details />
         <Schedule />
-        <Menu />
         <DressCode />
         <Accommodation />
-        <FAQ />
         <Gifts />
+        <FAQ />
         <RsvpInfo />
         <RsvpForm />
+        <Contact />
         <Footer />
       </main>
     </I18nProvider>

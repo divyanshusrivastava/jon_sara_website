@@ -1,22 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ivory: hsl(34 33% 91%);
-  --color-cream: hsl(55 18% 65%);
-  --color-sage: hsl(72 13% 45%);
-  --color-sage-dark: hsl(72 19% 32%);
-  --color-sage-light: hsl(55 18% 65%);
-  --color-gold: hsl(42 85% 55%);
-  --color-gold-soft: hsl(42 60% 70%);
-  --color-countdown: hsl(30 27% 91%);
-  --color-carbon: hsl(72 19% 25%);
-  --font-display: "Cormorant Garamond", serif;
-  --font-script: "Great Vibes", cursive;
-  --font-body: "Cormorant Garamond", serif;
-  --shadow-soft: 0 2px 15px -3px rgba(58, 69, 52, 0.08),
-    0 4px 6px -2px rgba(58, 69, 52, 0.04);
-  --shadow-elegant: 0 10px 40px -10px rgba(58, 69, 52, 0.15),
-    0 4px 15px -3px rgba(58, 69, 52, 0.08);
+  --color-ivory: #f7f1e8;
+  --color-cream: #e8dfd0;
+  --color-sage: #7a8466;
+  --color-sage-dark: #2f4a3a;
+  --color-sage-light: #a8b399;
+  --color-gold: #c4a35a;
+  --color-gold-soft: #d9c48a;
+  --color-terracotta: #b56a4b;
+  --color-countdown: #f3ebe0;
+  --color-carbon: #2a2a24;
+  --font-display: "Cormorant Garamond", "Instrument Serif", serif;
+  --font-script: "Allura", cursive;
+  --font-body: "Manrope", system-ui, sans-serif;
+  --shadow-soft: 0 2px 15px -3px rgba(47, 74, 58, 0.08),
+    0 4px 6px -2px rgba(47, 74, 58, 0.04);
+  --shadow-elegant: 0 10px 40px -10px rgba(47, 74, 58, 0.15),
+    0 4px 15px -3px rgba(47, 74, 58, 0.08);
 }
 
 @layer base {
@@ -57,6 +58,10 @@
     font-family: var(--font-script);
   }
 
+  .font-body {
+    font-family: var(--font-body);
+  }
+
   .text-balance {
     text-wrap: balance;
   }
@@ -70,16 +75,6 @@
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes float-soft {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
   }
 }
 

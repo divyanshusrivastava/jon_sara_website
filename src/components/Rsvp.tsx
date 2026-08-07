@@ -1,36 +1,31 @@
-import { useMemo, useState, type FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
-import { wedding } from "../data/wedding.ts";
 import { useI18n } from "../i18n.tsx";
 import { Section, SectionHeading } from "./ui.tsx";
 
 export function RsvpInfo() {
-  const { t, lang } = useI18n();
-  const body = t.rsvpInfoBody.replace("{deadline}", wedding.rsvpDeadline[lang]);
+  const { t } = useI18n();
 
   return (
-    <Section id="rsvp-info" className="!bg-[hsl(55_18%_78%)]">
+    <Section id="rsvp-info" className="!bg-[hsl(55_12%_78%)]">
       <SectionHeading title={t.rsvpInfo} />
       <motion.p
-        className="mx-auto max-w-2xl text-center font-display text-lg leading-relaxed text-sage-dark/90"
+        className="mx-auto max-w-2xl text-center font-body text-base leading-relaxed text-sage-dark/90 md:text-lg"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
       >
-        {body}
+        {t.rsvpInfoBody}
       </motion.p>
     </Section>
   );
 }
 
 export function RsvpForm() {
-  const { t, lang } = useI18n();
+  const { t } = useI18n();
   const [submitted, setSubmitted] = useState(false);
   const [attending, setAttending] = useState<"yes" | "no" | "">("");
-  const dishes = useMemo(
-    () => [...wedding.menu.meat, ...wedding.menu.fish],
-    [],
-  );
+  const [companion, setCompanion] = useState<"yes" | "no" | "">("");
 
   function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -59,11 +54,14 @@ export function RsvpForm() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
+          <Field name="name" label={t.fullName} required />
+          <Field name="email" label={t.email} type="email" required />
+
           <fieldset className="space-y-3">
-            <legend className="font-display text-lg text-sage-dark">
-              {t.attendingQ.replace("{date}", wedding.displayDate[lang])} *
+            <legend className="font-display text-xl text-sage-dark">
+              {t.attendingQ} *
             </legend>
-            <label className="flex items-center gap-3 font-display text-base text-sage">
+            <label className="flex items-center gap-3 font-body text-base text-sage">
               <input
                 type="radio"
                 name="attending"
@@ -75,7 +73,7 @@ export function RsvpForm() {
               />
               {t.yesAttending}
             </label>
-            <label className="flex items-center gap-3 font-display text-base text-sage">
+            <label className="flex items-center gap-3 font-body text-base text-sage">
               <input
                 type="radio"
                 name="attending"
@@ -89,71 +87,71 @@ export function RsvpForm() {
             </label>
           </fieldset>
 
-          <fieldset className="space-y-4">
-            <legend className="mb-2 font-display text-lg text-sage-dark">
-              {t.yourDetails} *
-            </legend>
-            <Field name="name" label={t.fullName} required />
-            <Field name="email" label={t.email} type="email" required />
-            <Field name="phone" label={t.phone} type="tel" required />
-          </fieldset>
-
           {attending === "yes" ? (
             <>
+              <fieldset className="space-y-3">
+                <legend className="font-display text-xl text-sage-dark">
+                  {t.companion} *
+                </legend>
+                <div className="flex gap-6">
+                  <label className="flex items-center gap-2 font-body text-base text-sage">
+                    <input
+                      type="radio"
+                      name="companion"
+                      value="yes"
+                      required
+                      checked={companion === "yes"}
+                      onChange={() => setCompanion("yes")}
+                      className="accent-sage-dark"
+                    />
+                    {t.yes}
+                  </label>
+                  <label className="flex items-center gap-2 font-body text-base text-sage">
+                    <input
+                      type="radio"
+                      name="companion"
+                      value="no"
+                      required
+                      checked={companion === "no"}
+                      onChange={() => setCompanion("no")}
+                      className="accent-sage-dark"
+                    />
+                    {t.no}
+                  </label>
+                </div>
+              </fieldset>
+
+              {companion === "yes" ? (
+                <Field name="companionName" label={t.companionName} required />
+              ) : null}
+
               <div>
-                <label className="mb-2 block font-display text-lg text-sage-dark">
-                  {t.mainCourse} *
+                <label className="mb-2 block font-display text-xl text-sage-dark">
+                  {t.dietary}
                 </label>
-                <select
-                  name="dish"
-                  required
-                  defaultValue=""
-                  className="w-full border border-sage/30 bg-white/50 px-4 py-3 font-display text-base text-sage-dark outline-none focus:border-sage-dark"
-                >
-                  <option value="" disabled>
-                    {t.chooseDish}
-                  </option>
-                  {dishes.map((d) => (
-                    <option key={d.en} value={d.en}>
-                      {d[lang]}
-                    </option>
-                  ))}
-                </select>
+                <textarea
+                  name="dietary"
+                  rows={3}
+                  className="w-full resize-y border border-sage/30 bg-white/50 px-4 py-3 font-body text-base text-sage-dark outline-none focus:border-sage-dark"
+                />
               </div>
-
-              <fieldset className="space-y-3">
-                <legend className="font-display text-lg text-sage-dark">
-                  {t.bringingPartner} *
-                </legend>
-                <RadioYesNo name="partner" yes={t.yes} no={t.no} />
-                <p className="font-display text-sm leading-relaxed text-sage">
-                  {t.partnerNote}
-                </p>
-              </fieldset>
-
-              <fieldset className="space-y-3">
-                <legend className="font-display text-lg text-sage-dark">
-                  {t.bringingKids} *
-                </legend>
-                <RadioYesNo name="kids" yes={t.yes} no={t.no} />
-              </fieldset>
             </>
           ) : null}
 
           <div>
-            <label className="mb-2 block font-display text-lg text-sage-dark">
+            <label className="mb-2 block font-display text-xl text-sage-dark">
               {t.messageOptional}
             </label>
             <textarea
               name="message"
               rows={4}
-              className="w-full resize-y border border-sage/30 bg-white/50 px-4 py-3 font-display text-base text-sage-dark outline-none focus:border-sage-dark"
+              className="w-full resize-y border border-sage/30 bg-white/50 px-4 py-3 font-body text-base text-sage-dark outline-none focus:border-sage-dark"
             />
           </div>
 
           <button
             type="submit"
-            className="w-full bg-sage-dark px-6 py-3.5 font-display text-sm uppercase tracking-[0.25em] text-ivory transition hover:bg-carbon"
+            className="w-full bg-sage-dark px-6 py-3.5 font-body text-sm uppercase tracking-[0.25em] text-ivory transition hover:bg-carbon"
           >
             {t.submitRsvp}
           </button>
@@ -176,50 +174,16 @@ function Field({
 }) {
   return (
     <label className="block">
-      <span className="mb-1.5 block font-display text-sm tracking-wide text-sage">
+      <span className="mb-1.5 block font-body text-sm tracking-wide text-sage">
         {label}
+        {required ? " *" : ""}
       </span>
       <input
         name={name}
         type={type}
         required={required}
-        className="w-full border border-sage/30 bg-white/50 px-4 py-3 font-display text-base text-sage-dark outline-none focus:border-sage-dark"
+        className="w-full border border-sage/30 bg-white/50 px-4 py-3 font-body text-base text-sage-dark outline-none focus:border-sage-dark"
       />
     </label>
-  );
-}
-
-function RadioYesNo({
-  name,
-  yes,
-  no,
-}: {
-  name: string;
-  yes: string;
-  no: string;
-}) {
-  return (
-    <div className="flex gap-6">
-      <label className="flex items-center gap-2 font-display text-base text-sage">
-        <input
-          type="radio"
-          name={name}
-          value="yes"
-          required
-          className="accent-sage-dark"
-        />
-        {yes}
-      </label>
-      <label className="flex items-center gap-2 font-display text-base text-sage">
-        <input
-          type="radio"
-          name={name}
-          value="no"
-          required
-          className="accent-sage-dark"
-        />
-        {no}
-      </label>
-    </div>
   );
 }

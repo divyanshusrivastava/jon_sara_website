@@ -18,7 +18,7 @@ export function IntroOverlay({
           type="button"
           aria-label={t.tapToOpen}
           onClick={onOpen}
-          className="fixed inset-0 z-50 flex cursor-pointer flex-col items-center justify-center border-0 bg-[radial-gradient(ellipse_at_center,_hsl(40_28%_86%)_0%,_hsl(34_33%_82%)_45%,_hsl(72_15%_55%)_100%)] p-6 text-sage-dark"
+          className="fixed inset-0 z-50 flex cursor-pointer flex-col items-center justify-center border-0 bg-[radial-gradient(ellipse_at_center,_#f3ebe0_0%,_#e8dfd0_45%,_#a8b399_100%)] p-6 text-sage-dark"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, scale: 1.04 }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
@@ -30,35 +30,36 @@ export function IntroOverlay({
             transition={{ delay: 0.15, duration: 0.8 }}
             whileHover={{ y: -4 }}
           >
-            <div className="relative aspect-[3/4] bg-gradient-to-b from-[#d9d4c4] via-[#cfc8b4] to-[#a8ad8e]">
-              <div className="absolute inset-4 border border-sage-dark/25" />
-              <div className="absolute inset-0 flex flex-col items-center justify-center px-8 text-center">
-                <p className="font-display text-xs uppercase tracking-[0.35em] text-sage-dark/70">
+            <div className="relative aspect-[3/4] overflow-hidden">
+              <img
+                src={wedding.heroImage}
+                alt=""
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-sage-dark/80 via-sage-dark/30 to-sage-dark/10" />
+              <div className="absolute inset-4 border border-ivory/30" />
+              <div className="absolute inset-0 flex flex-col items-center justify-end px-8 pb-12 text-center text-ivory">
+                <p className="font-body text-xs uppercase tracking-[0.35em] text-ivory/80">
                   {t.weAreGettingMarried}
                 </p>
-                <h1 className="mt-6 font-script text-6xl leading-none text-sage-dark md:text-7xl">
+                <h1 className="mt-4 font-script text-6xl leading-none md:text-7xl">
                   {wedding.couple.partner1}
                   <span className="mx-2 text-4xl">&</span>
                   {wedding.couple.partner2}
                 </h1>
-                <div className="mt-8 h-px w-16 bg-sage-dark/30" />
-                <p className="mt-6 font-display text-base tracking-wide text-sage-dark/80">
+                <div className="mt-6 h-px w-16 bg-ivory/40" />
+                <p className="mt-5 font-display text-lg tracking-wide text-ivory/90">
                   {wedding.displayDate[lang]}
                 </p>
+                <p className="mt-1 font-body text-sm text-ivory/75">
+                  {wedding.locationShort[lang]}
+                </p>
               </div>
-              <div
-                className="pointer-events-none absolute inset-x-0 top-0 h-24 opacity-40"
-                style={{
-                  backgroundImage:
-                    "radial-gradient(circle at 20% 30%, rgba(255,255,255,.5) 0 1px, transparent 2px), radial-gradient(circle at 70% 20%, rgba(255,255,255,.4) 0 1px, transparent 2px)",
-                  backgroundSize: "40px 40px",
-                }}
-              />
             </div>
           </motion.div>
 
           <motion.p
-            className="mt-10 font-display text-sm uppercase tracking-[0.3em] text-sage-dark/70"
+            className="mt-10 font-body text-sm uppercase tracking-[0.3em] text-sage-dark/70"
             animate={{ opacity: [0.45, 1, 0.45] }}
             transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
           >

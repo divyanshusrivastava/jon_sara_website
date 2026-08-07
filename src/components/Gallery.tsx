@@ -1,14 +1,15 @@
 import { wedding } from "../data/wedding.ts";
+import { useI18n } from "../i18n.tsx";
+import { SectionHeading } from "./ui.tsx";
 
 export function Gallery() {
+  const { t } = useI18n();
   const photos = [...wedding.gallery, ...wedding.gallery];
 
   return (
-    <section className="relative overflow-hidden bg-sage-dark py-10 md:py-14">
-      <div className="mb-8 text-center">
-        <span className="font-script text-5xl text-ivory/90">
-          {wedding.couple.monogram}
-        </span>
+    <section id="gallery" className="relative overflow-hidden bg-sage-dark py-14 md:py-20">
+      <div className="mb-10 px-6 text-center">
+        <SectionHeading title={t.gallery} subtitle={t.gallerySub} light />
       </div>
       <div className="relative">
         <div
