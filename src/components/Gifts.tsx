@@ -40,17 +40,20 @@ export function Gifts() {
           ))}
         </div>
 
-        <div className="mt-6 min-h-12 font-body text-base text-sage-dark">
-          {current.detail ? (
-            <p>{current.detail}</p>
-          ) : (
-            <p className="text-sage">
-              {current.label[lang]}
-              {lang === "pt"
-                ? " — dados a disponibilizar pelos noivos."
-                : " — details to be provided by the couple."}
-            </p>
-          )}
+        <div className="mt-6 space-y-2 font-body text-base leading-relaxed text-sage-dark">
+          {current.lines[lang].map((line) => (
+            <p key={line}>{line}</p>
+          ))}
+          {"link" in current && current.link ? (
+            <a
+              href={current.link.href}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-2 inline-block font-body text-sage-dark underline underline-offset-4 transition hover:text-terracotta"
+            >
+              {current.link.text}
+            </a>
+          ) : null}
         </div>
       </motion.div>
     </Section>

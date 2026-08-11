@@ -442,23 +442,60 @@ export const wedding = {
       pt: "A maior alegria deste dia será podermos partilhá-lo convosco. Se, ainda assim, desejarem oferecer-nos uma lembrança para o início desta nova etapa das nossas vidas, poderão fazê-lo através das opções disponibilizadas abaixo. Acima de tudo, agradecemos a vossa presença, o vosso carinho e o facto de fazerem parte da nossa história. São especiais.",
     } satisfies Localized,
     methods: [
-      { id: "mbway", label: { en: "MB WAY", pt: "MB WAY" }, detail: "" },
       {
         id: "revolut",
         label: { en: "Revolut", pt: "Revolut" },
-        detail: "",
+        lines: {
+          en: ["Send via Revolut:"],
+          pt: ["Enviar via Revolut:"],
+        },
+        link: {
+          href: "https://revolut.me/jonatas_rev25",
+          text: "revolut.me/jonatas_rev25",
+        },
+      },
+      {
+        id: "mbway",
+        label: { en: "MB WAY", pt: "MB WAY" },
+        lines: {
+          en: [
+            "Jonatas — 931 738 181",
+            "Sara — 932 107 115",
+          ],
+          pt: [
+            "Jonatas — 931 738 181",
+            "Sara — 932 107 115",
+          ],
+        },
       },
       {
         id: "bank",
-        label: { en: "Bank transfer", pt: "Transferência bancária" },
-        detail: "IBAN: (to be shared by the couple)",
+        label: { en: "Bank transfer (EUR)", pt: "Transferência bancária (EUR)" },
+        lines: {
+          en: [
+            "Beneficiary: Jonatas Carvalho",
+            "IBAN: LT29 3250 0960 1972 2009",
+            "BIC / SWIFT: REVOLT21",
+            "Bank: Revolut Bank UAB",
+            "Konstitucijos ave. 21B, 08130, Vilnius, Lithuania",
+            "Correspondent BIC: CHASDEFX",
+          ],
+          pt: [
+            "Beneficiário: Jonatas Carvalho",
+            "IBAN: LT29 3250 0960 1972 2009",
+            "BIC / SWIFT: REVOLT21",
+            "Banco: Revolut Bank UAB",
+            "Konstitucijos ave. 21B, 08130, Vilnius, Lithuania",
+            "BIC correspondente: CHASDEFX",
+          ],
+        },
       },
-      {
-        id: "qr",
-        label: { en: "QR Code", pt: "QR Code" },
-        detail: "",
-      },
-    ] as { id: string; label: Localized; detail: string }[],
+    ] as {
+      id: string;
+      label: Localized;
+      lines: Record<Lang, string[]>;
+      link?: { href: string; text: string };
+    }[],
   },
   contact: {
     title: { en: "Contact", pt: "Contactos" },
