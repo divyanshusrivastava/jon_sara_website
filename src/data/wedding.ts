@@ -516,15 +516,8 @@ export const wedding = {
       pt: "Email e telemóvel podem ser adicionados aqui — ou o contacto de alguém responsável no próprio dia.",
     },
   },
-  gallery: [
-    "/photos/image1.jpeg",
-    "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80",
-    "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800&q=80",
-    "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800&q=80",
-    "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=80",
-    "https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=800&q=80",
-  ],
-  heroImage: "/photos/image1.jpeg",
+  gallery: Array.from({ length: 19 }, (_, i) => `/photos/gallery-${i + 1}.jpeg`),
+  heroImage: "/photos/hero.jpeg",
 };
 
 export const copy = {
@@ -577,7 +570,7 @@ export const copy = {
     rsvpThanks: "Thank you! Your RSVP has been received.",
     madeWithLove: "With love",
     gallery: "A few moments",
-    gallerySub: "Photos to come — more will be added soon.",
+    gallerySub: "A few moments from our story.",
     welcome: "Welcome",
     story: "Our story",
     foundation: "Our foundation",
@@ -633,7 +626,7 @@ export const copy = {
     rsvpThanks: "Obrigado! A vossa confirmação foi recebida.",
     madeWithLove: "Com amor",
     gallery: "Alguns momentos",
-    gallerySub: "Fotografias a adicionar em breve.",
+    gallerySub: "Alguns momentos da nossa história.",
     welcome: "Bem-vindos",
     story: "A nossa história",
     foundation: "O nosso versículo",
