@@ -58,7 +58,7 @@ export function Foundation() {
   const { foundation } = wedding;
 
   return (
-    <Section id="foundation" className="!bg-sage-dark !text-ivory">
+    <Section id="foundation" className="!bg-chocolate !text-ivory">
       <SectionHeading title={foundation.title[lang]} light />
       <motion.blockquote
         className="mx-auto max-w-xl text-center"
@@ -124,7 +124,7 @@ export function Contact() {
             ) : null}
             {person.phone ? (
               <a
-                href={`tel:${person.phone}`}
+                href={`tel:${person.phone.replace(/\s+/g, "")}`}
                 className="mt-1 block font-body text-sage underline-offset-4 hover:underline"
               >
                 {person.phone}

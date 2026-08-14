@@ -503,12 +503,12 @@ export const wedding = {
       {
         name: "Sara",
         email: "",
-        phone: "",
+        phone: "+351 932 107 115",
       },
       {
         name: "Jonatas",
         email: "",
-        phone: "",
+        phone: "+351 931 738 181",
       },
     ],
     note: {

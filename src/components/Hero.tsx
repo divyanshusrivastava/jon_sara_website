@@ -14,7 +14,7 @@ export function Hero() {
           alt=""
           className="h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-sage-dark/55 via-sage-dark/45 to-sage-dark/75" />
+        <div className="absolute inset-0 bg-gradient-to-b from-chocolate/55 via-chocolate/45 to-chocolate/75" />
       </div>
 
       <div className="absolute right-5 top-5 z-20 flex gap-1 font-body text-sm tracking-[0.2em] text-ivory/80">

@@ -18,7 +18,7 @@ export function IntroOverlay({
           type="button"
           aria-label={t.tapToOpen}
           onClick={onOpen}
-          className="fixed inset-0 z-50 flex cursor-pointer flex-col items-center justify-center border-0 bg-[radial-gradient(ellipse_at_center,_#f3ebe0_0%,_#e8dfd0_45%,_#a8b399_100%)] p-6 text-sage-dark"
+          className="fixed inset-0 z-50 flex cursor-pointer flex-col items-center justify-center border-0 bg-[radial-gradient(ellipse_at_center,_#f3ebe0_0%,_#e8dfd0_45%,_#6e5d53_100%)] p-6 text-sage-dark"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, scale: 1.04 }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
@@ -36,7 +36,7 @@ export function IntroOverlay({
                 alt=""
                 className="absolute inset-0 h-full w-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-sage-dark/80 via-sage-dark/30 to-sage-dark/10" />
+              <div className="absolute inset-0 bg-gradient-to-t from-chocolate/80 via-chocolate/30 to-chocolate/10" />
               <div className="absolute inset-4 border border-ivory/30" />
               <div className="absolute inset-0 flex flex-col items-center justify-end px-8 pb-12 text-center text-ivory">
                 <p className="font-body text-xs uppercase tracking-[0.35em] text-ivory/80">

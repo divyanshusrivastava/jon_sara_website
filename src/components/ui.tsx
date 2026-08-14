@@ -16,7 +16,7 @@ export function Section({
     <section
       id={id}
       className={`relative px-6 py-20 md:py-28 ${
-        dark ? "bg-sage-dark text-ivory" : "bg-ivory text-sage-dark"
+        dark ? "bg-chocolate text-ivory" : "bg-ivory text-sage-dark"
       } ${className}`}
     >
       <div className="mx-auto w-full max-w-3xl">{children}</div>

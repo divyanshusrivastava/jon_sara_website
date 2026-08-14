@@ -6,7 +6,7 @@ export function Footer() {
   const { t, lang } = useI18n();
 
   return (
-    <footer className="relative overflow-hidden bg-sage-dark px-6 py-20 text-center text-ivory">
+    <footer className="relative overflow-hidden bg-chocolate px-6 py-20 text-center text-ivory">
       <div className="pointer-events-none absolute inset-0 opacity-25">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_#c4a35a55,_transparent_60%)]" />
       </div>
