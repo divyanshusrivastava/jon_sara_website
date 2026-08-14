@@ -567,7 +567,10 @@ export const copy = {
     yes: "Yes",
     no: "No",
     submitRsvp: "Send RSVP",
+    rsvpSending: "Sending…",
     rsvpThanks: "Thank you! Your RSVP has been received.",
+    rsvpError:
+      "Something went wrong sending your RSVP. Please try again, or contact us directly.",
     madeWithLove: "With love",
     gallery: "A few moments",
     gallerySub: "A few moments from our story.",
@@ -623,7 +626,10 @@ export const copy = {
     yes: "Sim",
     no: "Não",
     submitRsvp: "Enviar RSVP",
+    rsvpSending: "A enviar…",
     rsvpThanks: "Obrigado! A vossa confirmação foi recebida.",
+    rsvpError:
+      "Não foi possível enviar o RSVP. Tentem novamente ou contactem-nos directamente.",
     madeWithLove: "Com amor",
     gallery: "Alguns momentos",
     gallerySub: "Alguns momentos da nossa história.",

@@ -22,16 +22,40 @@ export function RsvpInfo() {
 }
 
 export function RsvpForm() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState(false);
   const [attending, setAttending] = useState<"yes" | "no" | "">("");
   const [companion, setCompanion] = useState<"yes" | "no" | "">("");
 
-  function onSubmit(e: FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
-    console.log("RSVP", Object.fromEntries(data.entries()));
-    setSubmitted(true);
+    setError(false);
+
+    const endpoint = import.meta.env.VITE_RSVP_SCRIPT_URL;
+    if (!endpoint) {
+      setError(true);
+      return;
+    }
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    data.set("lang", lang);
+
+    setSending(true);
+    try {
+      await fetch(endpoint, {
+        method: "POST",
+        body: data,
+        mode: "no-cors",
+      });
+      setSubmitted(true);
+    } catch {
+      setError(true);
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
@@ -149,11 +173,16 @@ export function RsvpForm() {
             />
           </div>
 
+          {error ? (
+            <p className="font-body text-base text-terracotta">{t.rsvpError}</p>
+          ) : null}
+
           <button
             type="submit"
-            className="w-full bg-sage-dark px-6 py-3.5 font-body text-sm uppercase tracking-[0.25em] text-ivory transition hover:bg-carbon"
+            disabled={sending}
+            className="w-full bg-sage-dark px-6 py-3.5 font-body text-sm uppercase tracking-[0.25em] text-ivory transition hover:bg-carbon disabled:opacity-60"
           >
-            {t.submitRsvp}
+            {sending ? t.rsvpSending : t.submitRsvp}
           </button>
         </motion.form>
       )}

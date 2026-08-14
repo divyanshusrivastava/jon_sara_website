@@ -22,4 +22,4 @@ npm run build
 npm run preview
 ```
 
-RSVP currently logs to the browser console. Wire `RsvpForm` to Formspree, Google Sheets, or your backend when ready.
+RSVP submissions are written to a Google Sheet. Follow `google-apps-script/README.md` to connect it.
