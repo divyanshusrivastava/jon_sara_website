@@ -33,7 +33,9 @@ export function RsvpForm() {
     e.preventDefault();
     setError(false);
 
-    const endpoint = import.meta.env.VITE_RSVP_SCRIPT_URL;
+    const endpoint =
+      import.meta.env.VITE_RSVP_SCRIPT_URL ||
+      "https://script.google.com/macros/s/AKfycbx23sfgsb-udwEDqmhv4fRcMaviVEC44kUgshWPXVXQwirrsiIK_7fEUySgUIWMr3SkZQ/exec";
     if (!endpoint) {
       setError(true);
       return;
