@@ -16,17 +16,11 @@ export function DressCode() {
         viewport={{ once: true }}
         transition={{ duration: 0.65 }}
       >
-        <div className="mx-auto mb-8 flex h-16 w-full max-w-xs items-center justify-center gap-2">
-          {["#2f4a3a", "#7a8466", "#b56a4b", "#d9c48a", "#e8dfd0", "#8b5e4b"].map(
-            (c) => (
-              <span
-                key={c}
-                className="h-10 w-10 rounded-full border border-sage-dark/10"
-                style={{ background: c }}
-              />
-            ),
-          )}
-        </div>
+        <img
+          src="/photos/color-palette.jpeg"
+          alt="Cores do Nosso Dia"
+          className="mx-auto mb-8 w-full max-w-lg rounded-sm shadow-[var(--shadow-soft)]"
+        />
         <h3 className="font-display text-3xl text-sage-dark">
           {wedding.dressCode.title[lang]}
         </h3>
