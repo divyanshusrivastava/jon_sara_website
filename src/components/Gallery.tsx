@@ -7,7 +7,7 @@ export function Gallery() {
   const photos = [...wedding.gallery, ...wedding.gallery];
 
   return (
-    <section id="gallery" className="relative overflow-hidden bg-sage-dark py-14 md:py-20">
+    <section id="gallery" className="relative overflow-hidden bg-forest py-14 md:py-20">
       <div className="mb-10 px-6 text-center">
         <SectionHeading title={t.gallery} subtitle={t.gallerySub} light />
       </div>
