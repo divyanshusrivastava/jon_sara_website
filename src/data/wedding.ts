@@ -122,13 +122,13 @@ export const wedding = {
       pt: "Casa de Família — Alcanhões",
     },
     city: "Alcanhões, Santarém, Portugal",
-    address: "Rua Paulina da Cunha Silva, 22, 2000-369 Alcanhões, Santarém, Portugal",
+    address: "Rua Paulino da Cunha e Silva, 92, 2000-369 Alcanhões, Santarém, Portugal",
     timeRange: {
       en: "Guest reception from 4:00 PM · Ceremony at 5:00 PM",
       pt: "Receção a partir das 16h00 · Cerimónia às 17h00",
     } satisfies Localized,
     mapsUrl:
-      "https://www.google.com/maps/search/?api=1&query=Rua+Paulina+da+Cunha+Silva+22+2000-369+Alcanh%C3%B5es+Santar%C3%A9m+Portugal",
+      "https://www.google.com/maps/search/?api=1&query=Rua+Paulino+da+Cunha+e+Silva+92+Alcanh%C3%B5es+Santar%C3%A9m+Portugal",
     calendarUrl: "",
     parking: {
       title: { en: "Parking", pt: "Estacionamento" },
